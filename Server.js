@@ -4,21 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { DB2 } = require("./Database/DB");
 const { DB1 } = require("./Database/CCDB");
-const LogIn = require("./Router/Login");
-const Course = require("./Router/Course");
-const Challenges = require("./Router/Challenges");
-const Profile = require("./Router/Profile");
-const Post = require("./Router/Post");
-const Search = require("./Router/Search");
-const Following = require("./Router/Following");
-const Suggestions = require("./Router/Suggestions");
-const Activity = require("./Router/Activity");
-const Notification = require("./Router/Notification");
-const Placement = require("./Router/Placement");
 const socket = require("./Socket/Socket");
-const Interview = require("./Router/Interview")
-const Assignments = require("./Router/Assignments");
-const Wallet = require("./Router/Wallet");
 const axios = require("axios")
 
 const app = express();
@@ -37,21 +23,6 @@ DB2.on("connected", () => {
   console.log("DB2 is connected");
 });
 
-// Routers
-app.use("/LogIn", LogIn);
-app.use("/Courses", Course);
-app.use("/Challenges", Challenges);
-app.use("/Profile", Profile);
-app.use("/Post", Post);
-app.use("/Activity", Activity);
-app.use("/Search", Search);
-app.use("/following", Following);
-app.use("/Suggestions", Suggestions);
-app.use("/Placements", Placement);
-app.use("/Notifications", Notification);
-app.use("/Assignment", Assignments);
-app.use("/Wallet", Wallet)
-app.use("/InterView", Interview)
 // 
 // Self-ping endpoint
 app.get("/ping", (req, res) => {
