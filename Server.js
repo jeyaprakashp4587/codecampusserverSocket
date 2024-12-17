@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ origin: "*" }));
 // socket
 socket(server);
-// Connect databases
+// Connect databases update
 DB1.on("connected", () => {
   console.log("DB1 is connected");
 });
